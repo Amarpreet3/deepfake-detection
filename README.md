@@ -7,13 +7,6 @@ In general solution is based on frame-by-frame classification approach.
 #### Face-Detector
 MTCNN detector is chosen due to kernel time limits.
 
-Input size for face detector was calculated for each video depending on video resolution.
-
-- 2x scale for videos with less than 300 pixels wider side
-- no rescale for videos with wider side between 300 and 1000
-- 0.5x scale for videos with wider side > 1000 pixels
-- 0.33x scale for videos with wider side > 1900 pixels
-
 ### Input size
 I have gone through a lot of reseach papers and  I discovered that EfficientNets significantly outperform other encoders I used only them in my solution.
 As I started with B4 I decided to use "native" size for that network (380x380).
