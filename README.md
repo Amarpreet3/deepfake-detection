@@ -1,17 +1,5 @@
 ## DeepFake Detection (DFDC)
-Recent technological advancements have made it increasingly difficult to distinguish
-
-deepfakes from authentic media. This study presents a comprehensive deepfake detec-
-tion strategy using a frame-by-frame classification approach with EfficientNet B5 and
-
-B7 models. Key steps include face detection, cropping, landmark generation, and SSIM
-difference masking, complemented by heavy data augmentations. The proposed method
-
-significantly improves detection accuracy, outperforming existing models. The study un-
-derscores the need for advanced deep learning techniques to combat the growing sophistic-
-ation of deepfakes, with ongoing research required to further enhance detection robustness
-
-and reliability.
+Recent technological advancements have made it increasingly difficult to distinguish deepfakes from authentic media. This study presents a comprehensive deepfake detection strategy using a frame-by-frame classification approach with EfficientNet B5 and B7 models. Key steps include face detection, cropping, landmark generation, and SSIM difference masking, complemented by heavy data augmentations. The proposed method significantly improves detection accuracy, outperforming existing models. The study underscores the need for advanced deep learning techniques to combat the growing sophistication of deepfakes, with ongoing research required to further enhance detection robustness and reliability.
 
 ![title](https://github.com/user-attachments/assets/80ffdc1e-fa98-4bf7-b150-26dd0b0ca862)
 
