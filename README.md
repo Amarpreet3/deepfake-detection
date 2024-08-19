@@ -1,7 +1,23 @@
 ## DeepFake Detection (DFDC)
+Recent technological advancements have made it increasingly difficult to distinguish
+
+deepfakes from authentic media. This study presents a comprehensive deepfake detec-
+tion strategy using a frame-by-frame classification approach with EfficientNet B5 and
+
+B7 models. Key steps include face detection, cropping, landmark generation, and SSIM
+difference masking, complemented by heavy data augmentations. The proposed method
+
+significantly improves detection accuracy, outperforming existing models. The study un-
+derscores the need for advanced deep learning techniques to combat the growing sophistic-
+ation of deepfakes, with ongoing research required to further enhance detection robustness
+
+and reliability.
+
+![title](https://github.com/user-attachments/assets/80ffdc1e-fa98-4bf7-b150-26dd0b0ca862)
 
 ## Solution description 
 In general solution is based on frame-by-frame classification approach. Other complex things did not work so well on public leaderboard.
+![methodology](https://github.com/user-attachments/assets/8d40b32e-7d41-4a6b-90d7-0a53f2a14268)
 
 #### Face-Detector
 MTCNN detector is chosen due to kernel time limits. It would be better to use S3FD detector as more precise and robust, but opensource Pytorch implementations don't have a license. 
@@ -72,6 +88,8 @@ def create_train_transforms(size=300):
 In addition to these augmentations I wanted to achieve better generalization with 
 - Cutout like augmentations (dropping artefacts and parts of face)
 - Dropout part of the image, inspired by [GridMask](https://arxiv.org/abs/2001.04086) and [Severstal Winning Solution](https://www.kaggle.com/c/severstal-steel-defect-detection/discussion/114254) 
+
+
 
 ## Data preparation
 
