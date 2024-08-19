@@ -122,20 +122,22 @@ During training checkpoints are saved for every epoch.
 Kernel is reproduced with `predict_folder.py` script.
 
 
-## Pretrained models  
-`download_weights.sh` script will download trained models to `weights/` folder. They should be downloaded before building a docker image.
- 
-Ensemble inference is already preconfigured with `predict_submission.sh` bash script. It expects a directory with videos as first argument and an output csv file as second argument.
- 
-For example `./predict_submission.sh /mnt/datasets/deepfake/test_videos submission.csv`  
+## Pretrained Models
+
+Use the `download_weights.sh` script to download pretrained models to the `weights/` folder. Ensure these models are downloaded before building the Docker image.
+
+Ensemble inference is preconfigured with the `predict_submission.sh` script. This script requires two arguments: the directory containing videos and the output CSV file. For example:
+```bash
+./predict_submission.sh /mnt/datasets/deepfake/test_videos submission.csv
+```
 
 ## Predictions
 
-Save all the models in dfdc_models and run the 
+Save all models in the `dfdc_models` directory and run the `dfdc_inference_gardio.ipynb` notebook for predictions.
 
-## Gardio Interface 
+## Gradio Interface
 
-For live detection of reand and fake runt the file "" input he video and get the results. 
+To perform live detection of real and fake videos, run the `dfdc_gradio_live.ipynb` notebook. Input the video and get the results.
 
 
 ### Fake detection articles  
