@@ -1,21 +1,4 @@
-## DeepFake Detection (DFDC) Solution by @selimsef
-
-## Challenge details:
-
-[Kaggle Challenge Page](https://www.kaggle.com/c/deepfake-detection-challenge)
-
-
-### Fake detection articles  
-- [The Deepfake Detection Challenge (DFDC) Preview Dataset](https://arxiv.org/abs/1910.08854)
-- [Deep Fake Image Detection Based on Pairwise Learning](https://www.mdpi.com/2076-3417/10/1/370)
-- [DeeperForensics-1.0: A Large-Scale Dataset for Real-World Face Forgery Detection](https://arxiv.org/abs/2001.03024)
-- [DeepFakes and Beyond: A Survey of Face Manipulation and Fake Detection](https://arxiv.org/abs/2001.00179)
-- [Real or Fake? Spoofing State-Of-The-Art Face Synthesis Detection Systems](https://arxiv.org/abs/1911.05351)
-- [CNN-generated images are surprisingly easy to spot... for now](https://arxiv.org/abs/1912.11035)
-- [FakeSpotter: A Simple yet Robust Baseline for Spotting AI-Synthesized Fake Faces](https://arxiv.org/abs/1909.06122)
-- [FakeLocator: Robust Localization of GAN-Based Face Manipulations via Semantic Segmentation Networks with Bells and Whistles](https://arxiv.org/abs/2001.09598)
-- [Media Forensics and DeepFakes: an overview](https://arxiv.org/abs/2001.06564)
-- [Face X-ray for More General Face Forgery Detection](https://arxiv.org/abs/1912.13458)
+## DeepFake Detection (DFDC)
 
 ## Solution description 
 In general solution is based on frame-by-frame classification approach. Other complex things did not work so well on public leaderboard.
@@ -90,16 +73,6 @@ In addition to these augmentations I wanted to achieve better generalization wit
 - Cutout like augmentations (dropping artefacts and parts of face)
 - Dropout part of the image, inspired by [GridMask](https://arxiv.org/abs/2001.04086) and [Severstal Winning Solution](https://www.kaggle.com/c/severstal-steel-defect-detection/discussion/114254) 
 
-![augmentations](images/augmentations.jpg "Dropout augmentations")
-
-## Building docker image
-All libraries and enviroment is already configured with Dockerfile. It requires docker engine https://docs.docker.com/engine/install/ubuntu/ and  nvidia docker in your system https://github.com/NVIDIA/nvidia-docker.
-
-To build a docker image run `docker build -t df .`
-
-## Running docker 
-`docker run --runtime=nvidia --ipc=host --rm  --volume <DATA_ROOT>:/dataset -it df`
-
 ## Data preparation
 
 Once DFDC dataset is downloaded all the scripts expect to have `dfdc_train_xxx` folders under data root directory. 
@@ -137,15 +110,6 @@ Training 5 B7 models with different seeds is done in **`train.sh`** script.
 
 During training checkpoints are saved for every epoch.
 
-## Hardware requirements
-Mostly trained on devbox configuration with 4xTitan V, thanks to Nvidia and DSB2018 competition where I got these gpus https://www.kaggle.com/c/data-science-bowl-2018/
- 
-Overall training requires 4 GPUs with 12gb+ memory. 
-Batch size needs to be adjusted for standard 1080Ti or 2080Ti graphic cards.
-
-As I computed fake loss and real loss separately inside each batch, results might be better with larger batch size, for example on V100 gpus. 
-Even though SyncBN is used larger batch on each GPU will lead to less noise as DFDC dataset has some fakes where face detector failed and face crops are not really fakes.   
-
 ## Plotting losses to select checkpoints
 
 `python plot_loss.py --log-file logs/<log file>`
@@ -165,7 +129,26 @@ Ensemble inference is already preconfigured with `predict_submission.sh` bash sc
  
 For example `./predict_submission.sh /mnt/datasets/deepfake/test_videos submission.csv`  
 
+## Predictions
 
+Save all the models in dfdc_models and run the 
+
+## Gardio Interface 
+
+For live detection of reand and fake runt the file "" input he video and get the results. 
+
+
+### Fake detection articles  
+- [The Deepfake Detection Challenge (DFDC) Preview Dataset](https://arxiv.org/abs/1910.08854)
+- [Deep Fake Image Detection Based on Pairwise Learning](https://www.mdpi.com/2076-3417/10/1/370)
+- [DeeperForensics-1.0: A Large-Scale Dataset for Real-World Face Forgery Detection](https://arxiv.org/abs/2001.03024)
+- [DeepFakes and Beyond: A Survey of Face Manipulation and Fake Detection](https://arxiv.org/abs/2001.00179)
+- [Real or Fake? Spoofing State-Of-The-Art Face Synthesis Detection Systems](https://arxiv.org/abs/1911.05351)
+- [CNN-generated images are surprisingly easy to spot... for now](https://arxiv.org/abs/1912.11035)
+- [FakeSpotter: A Simple yet Robust Baseline for Spotting AI-Synthesized Fake Faces](https://arxiv.org/abs/1909.06122)
+- [FakeLocator: Robust Localization of GAN-Based Face Manipulations via Semantic Segmentation Networks with Bells and Whistles](https://arxiv.org/abs/2001.09598)
+- [Media Forensics and DeepFakes: an overview](https://arxiv.org/abs/2001.06564)
+- [Face X-ray for More General Face Forgery Detection](https://arxiv.org/abs/1912.13458)
 
 
 
