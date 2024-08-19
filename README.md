@@ -136,9 +136,11 @@ Ensemble inference is preconfigured with the `predict_submission.sh` script. Thi
 Save all models in the `dfdc_models` directory and run the `dfdc_inference_gardio.ipynb` notebook for predictions.
 
 ## Gradio Interface
+![gradio_live](https://github.com/user-attachments/assets/5ac0dbe7-4057-43e4-a829-5bbc55ecaa47)
 
 To perform live detection of real and fake videos, run the `dfdc_gradio_live.ipynb` notebook. Input the video and get the results.
 
+![gradio_output](https://github.com/user-attachments/assets/a8d7ab17-3343-453e-bcc1-ee8efc0a9d87)
 
 ### Fake detection articles  
 - [The Deepfake Detection Challenge (DFDC) Preview Dataset](https://arxiv.org/abs/1910.08854)
