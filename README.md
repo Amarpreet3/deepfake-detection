@@ -23,7 +23,7 @@ As I started with B4 I decided to use "native" size for that network (380x380).
 Due to memory costraints I did not increase input size even for B7 encoder.
 
 ### Margin
-When I generated crops for training I added 30% of face crop size from each side and used only this setting during the competition. 
+When I generated crops for training I added 30% of face crop size from each side and used only this setting.
 See [extract_crops.py](preprocessing/extract_crops.py) for the details
 
 ### Encoders
