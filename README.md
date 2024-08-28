@@ -4,7 +4,7 @@ Recent technological advancements have made it increasingly difficult to disting
 ![title](https://github.com/user-attachments/assets/80ffdc1e-fa98-4bf7-b150-26dd0b0ca862)
 
 ## Solution description 
-In general solution is based on frame-by-frame classification approach. Other complex things did not work so well on public leaderboard.
+In general solution is based on frame-by-frame classification approach. 
 ![methodology](https://github.com/user-attachments/assets/8d40b32e-7d41-4a6b-90d7-0a53f2a14268)
 
 #### Face-Detector
